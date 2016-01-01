@@ -1,0 +1,13 @@
+C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\k_means_cluster.exe.config
+C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\k_means_cluster.exe
+C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\k_means_cluster.pdb
+C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\MainWindow.baml
+C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\MainWindow.g.cs
+C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\App.g.cs
+C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\k_means_cluster_MarkupCompile.cache
+C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\k_means_cluster.g.resources
+C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\k_means_cluster.Properties.Resources.resources
+C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\k_means_cluster.csproj.GenerateResource.Cache
+C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\k_means_cluster.exe
+C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\k_means_cluster.pdb
+C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\k_means_cluster.csprojResolveAssemblyReference.cache

@@ -1,0 +1,21 @@
+﻿<Window x:Class="performance_corr.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Performance Correlation Matrix" Height="370" Width="655">
+ 
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Properties/correlation_matrix.png" Stretch="Uniform" AlignmentX="Right" >
+            </ImageBrush>
+        </Grid.Background>
+        
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="51,70,0,0" TextWrapping="Wrap" Text="AMRN,MCSF,IRF" VerticalAlignment="Top" Width="141" Name="Tickers"/>
+        <TextBlock HorizontalAlignment="Left" Margin="51,49,0,0" TextWrapping="Wrap" Text="List tickers. Seperate by comma" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold" FontStyle="Italic" />
+        <TextBlock HorizontalAlignment="Left" Margin="51,120,0,0" TextWrapping="Wrap" Text="From " VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+        <Button Content="Create Matrix" HorizontalAlignment="Left" Margin="51,201,0,0" VerticalAlignment="Top" Width="104" Click="GenerateExcelFile"/>
+        <DatePicker HorizontalAlignment="Left" Margin="51,136,0,0" VerticalAlignment="Top" Name="Date1"/>
+        <DatePicker HorizontalAlignment="Left" Margin="185,136,0,0" VerticalAlignment="Top" Name="Date2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="194,115,0,0" TextWrapping="Wrap" Text="To" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+       
+    </Grid>
+</Window>

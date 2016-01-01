@@ -1,0 +1,9 @@
+C:\Users\T-420\TickerAnalytics\DatabaseAPI\bin\Debug\DatabaseAPI.dll.config
+C:\Users\T-420\TickerAnalytics\DatabaseAPI\bin\Debug\DatabaseAPI.dll
+C:\Users\T-420\TickerAnalytics\DatabaseAPI\bin\Debug\DatabaseAPI.pdb
+C:\Users\T-420\TickerAnalytics\DatabaseAPI\bin\Debug\EntityFramework.dll
+C:\Users\T-420\TickerAnalytics\DatabaseAPI\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\T-420\TickerAnalytics\DatabaseAPI\bin\Debug\EntityFramework.xml
+C:\Users\T-420\TickerAnalytics\DatabaseAPI\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\T-420\TickerAnalytics\DatabaseAPI\obj\Debug\DatabaseAPI.dll
+C:\Users\T-420\TickerAnalytics\DatabaseAPI\obj\Debug\DatabaseAPI.pdb
