@@ -96,7 +96,6 @@ namespace performance_corr
             writeRange.Value2 = data;
             app.Visible = true;
             app.WindowState = XlWindowState.xlMaximized;
-            wb.SaveAs(@"C:\Experiment\practice.xlsx");
         }
 
     }

@@ -13,18 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using System.Collections;
 using System.IO;
+using Microsoft.Office.Interop.Excel;
 
 namespace k_means_cluster
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
-        private static List<string> tickers;
+        private static string[] tickers;
         private static string userfilepath;
 
         public MainWindow()
@@ -47,21 +47,39 @@ namespace k_means_cluster
                 filepath.Text = filename;
                 userfilepath = filename;
                 var reader = new StreamReader(File.OpenRead(@userfilepath));
-                string[] lines;
-                while (!reader.EndOfStream)
-                {
-                    var line = reader.ReadLine();
-                    Array value = line.Split(',');
-                    ArrayList temp = new ArrayList(value);
-                    
-                }
+                var line = reader.ReadLine();
+                tickers = line.Split(',');
             }
+
+        }
+
+        //getClusters button will create clusters in excel 
+        private void getClusters(object sender, RoutedEventArgs e)
+        {
+
+            var data = new Object[tickers.Length];
+            for (int i = 0; i < tickers.Length; i++)
+            {
+                data[i] = tickers[i];
+            }
+            // Handles creation of excel workbook and loads the data all at once
+            Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+            Workbook wb = app.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
+            Worksheet ws = wb.Worksheets[1];
+            var startCell = ws.Cells[1, 1];
+            var endCell = ws.Cells[1, tickers.Length];
+            var writeRange = ws.Range[startCell, endCell];
+
+            writeRange.Value2 = data;
+            app.Visible = true;
+            app.WindowState = XlWindowState.xlMaximized;
+
 
         }
 
         
 
-        //get clusters button will create clusters in excel 
+       
 
     }
 }
