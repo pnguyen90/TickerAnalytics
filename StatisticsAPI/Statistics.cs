@@ -10,7 +10,7 @@ namespace StatisticsAPI
     public class Statistics
     {
         //computes the normalized correlation of two arrays of numbers.
-        public static decimal correlation(ArrayList a, ArrayList b)
+        public static decimal correlation(decimal[] a, decimal[] b)
         {
             //compute dot product of a and b  ----> a.b
 
@@ -27,6 +27,15 @@ namespace StatisticsAPI
             return c;
         }
 
-        private static decimal dotProduct()
+        private static decimal dotProduct(decimal[] a, decimal[] b)
+        {
+            decimal scalar = 0;
+
+            for (int i = 0; i < a.Length ; i+= 1)
+            {
+                scalar  += a[i] * b[i];
+            }
+            return scalar;
+        }
     }
 }

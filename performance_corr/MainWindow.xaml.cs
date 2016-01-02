@@ -75,8 +75,8 @@ namespace performance_corr
                         else if (column >= row)
                         {
                             
-                            ArrayList stock1 = DBobject.getPriceArray(tickerArray[row - 2], start, end);
-                            ArrayList stock2 = DBobject.getPriceArray(tickerArray[column - 2], start, end);
+                            decimal[] stock1 = DBobject.getPriceArray(tickerArray[row - 2], start, end);
+                            decimal[] stock2 = DBobject.getPriceArray(tickerArray[column - 2], start, end);
                             decimal coefficient = Statistics.correlation(stock1, stock2);
                              
                             data[row - 1, column - 1] = coefficient;

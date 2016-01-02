@@ -14,7 +14,7 @@ namespace DatabaseAPI
         //no constructor
         
         //method to retrieve an array of price (decimal) values given ticker and time range (inclusive)
-        public static ArrayList getPriceArray(String ticker, DateTime start, DateTime end)
+        public static decimal[] getPriceArray(String ticker, DateTime start, DateTime end)
         {
             using (StocksEntities context = new StocksEntities())
             {
@@ -27,9 +27,9 @@ namespace DatabaseAPI
               
                             select record.Price;
 
-                Array priceArray = query.ToArray();
-                ArrayList result = new ArrayList(priceArray);
-                return result;
+                decimal[] priceArray = query.ToArray();
+                
+                return priceArray;
             }
         }
 
