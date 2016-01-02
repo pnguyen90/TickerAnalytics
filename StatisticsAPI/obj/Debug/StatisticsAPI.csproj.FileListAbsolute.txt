@@ -2,3 +2,4 @@ C:\Users\T-420\TickerAnalytics\StatisticsAPI\bin\Debug\StatisticsAPI.dll
 C:\Users\T-420\TickerAnalytics\StatisticsAPI\bin\Debug\StatisticsAPI.pdb
 C:\Users\T-420\TickerAnalytics\StatisticsAPI\obj\Debug\StatisticsAPI.dll
 C:\Users\T-420\TickerAnalytics\StatisticsAPI\obj\Debug\StatisticsAPI.pdb
+C:\Users\T-420\TickerAnalytics\StatisticsAPI\obj\Debug\StatisticsAPI.csprojResolveAssemblyReference.cache

@@ -33,7 +33,7 @@ namespace performance_corr
         //Generates stock correlation matrix from user input params: tickers and daterange
         private void GenerateExcelFile(object sender, RoutedEventArgs e)
         {
-            //parsing and loading user input data for further processing
+            //harvesting user input data for further processing
             string ticker = Tickers.Text;
             char[] delimit = {','};
 
