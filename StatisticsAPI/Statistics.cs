@@ -37,18 +37,65 @@ namespace StatisticsAPI
             //create array of tuples
         //apply standard k-means clustering algorithm to tuples.
         //map the tuples back to tickers preserving clusters.
-        public static Dictionary<Tuple<decimal,decimal>, Tuple<decimal,decimal>[]> k_means(Tuple<decimal,decimal>[] coordinates)
+        public static Dictionary<Tuple<decimal,decimal>, Tuple<decimal,decimal>[]> k_means(Tuple<decimal,decimal>[] coordinates, int k)
         {
-            Dictionary<Tuple<decimal,decimal>, Tuple<decimal,decimal>[]> sample = new Dictionary<Tuple<decimal,decimal>, Tuple<decimal,decimal>[]>();
-            Tuple<decimal,decimal> point = new Tuple<decimal,decimal>(5,5);
-            Tuple<decimal,decimal>[] list = new Tuple<decimal,decimal>[1];
-            list[0] = point;
-            Tuple<decimal,decimal> centroid = new Tuple<decimal,decimal> (6,6);
-            sample[centroid] = list;
+            Tuple<decimal, decimal>[] centroids_new = new Tuple<decimal, decimal>[k];
+            Tuple<decimal, decimal>[] centroids_old = new Tuple<decimal, decimal>[k];
+            ArrayList[] clusters = new ArrayList[k];
+         
+            
+            //load up centroids with first k elements of coodinates and makes k containers
+            
+            for (int i = 0; i < k; i++)
+            {
+                centroids_new[i] = coordinates[i];
 
+            }
+            //sort tuples into the k containers based on distance from centroids. suggests that the k arrays need to be lists.
+            while (!centroids_new.Equals(centroids_old))
+            {
+                //make sure clusters is cleared
+                clusters = new ArrayList[k];
+                //cluster points based on current centroids
+                foreach (Tuple<decimal, decimal> point in coordinates)
+                {
+                    decimal[] dis_to_centroids = new decimal[k];
+                    for (int j = 0; j < k; j++)
+                    {
+                        dis_to_centroids[j] = distance(point, centroids_new[j]);
+                    }
+                    int index = minValue(dis_to_centroids);
+                    clusters[index].Add(point);
+                }
+                
+                //store current centroid values into centroids_old
+                centroids_old = centroids_new;
 
-            return sample;
+                //update centroids based on clusters
+                int count = 0;
+                foreach (ArrayList cluster in clusters)
+                {
+                    Tuple<decimal, decimal>[] clust = new Tuple<decimal, decimal>[cluster.Count];
+                    cluster.CopyTo(clust);
+                    centroids_new[count] = compute_centroid(clust);
+                    count += 1;
+                }
+                
+            }
 
+            //when we are done clustering, convert everything to a dictionary
+            
+
+            Dictionary<Tuple<decimal,decimal>, Tuple<decimal,decimal>[]> result = new Dictionary<Tuple<decimal,decimal>, Tuple<decimal,decimal>[]>(k);
+
+            for (int i = 0; i < k; i++)
+            {
+                Tuple<decimal, decimal>[] value = new Tuple<decimal, decimal>[clusters[m].Count];
+                clusters[i].CopyTo(value);
+                result[centroids_new[i]] = value;
+            }
+            
+            return result;
            
         }
 
@@ -65,7 +112,7 @@ namespace StatisticsAPI
         }
 
         //returns the centroid of an array of (x,y) coordinates. For internal use.
-        private static Tuple<decimal,decimal> centroid(Tuple<decimal,decimal>[] coordinates)
+        private static Tuple<decimal,decimal> compute_centroid(Tuple<decimal,decimal>[] coordinates)
         {
             decimal average_x;
             decimal average_y;
@@ -92,11 +139,33 @@ namespace StatisticsAPI
             decimal x_diff = point2.Item1 - point1.Item1;
             decimal y_diff = point2.Item2 - point1.Item1;
             decimal squared_distance = x_diff * x_diff + y_diff * y_diff;
-            double squared_distance_d = double(squared_distance);
+            double squared_distance_d = (double)squared_distance;
             double distance_d = Math.Sqrt(squared_distance_d);
             decimal distance = Convert.ToDecimal(distance_d);
             return distance;
         }
+
+        //returns the index of minium value in array of decimals
+        private static int minValue(decimal[] numbers)
+        {
+            int count = 0;
+            int index = 0;
+            decimal minv = 0;
+
+            foreach (decimal value in numbers)
+            {
+                if (value < minv)
+                {
+                    minv = value;
+                    index = count;
+                }
+                count += 1;
+
+            }
+
+            return index;
+        }
+
 
     }
 }
