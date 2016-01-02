@@ -54,8 +54,12 @@ namespace StatisticsAPI
             //sort tuples into the k containers based on distance from centroids. suggests that the k arrays need to be lists.
             while (!centroids_new.Equals(centroids_old))
             {
-                //make sure clusters is cleared
-                clusters = new ArrayList[k];
+                //make sure clusters is cleared and intialized
+                for (int i = 0; i < k; i++)
+                {
+                    clusters[i] = new ArrayList();
+                }
+
                 //cluster points based on current centroids
                 foreach (Tuple<decimal, decimal> point in coordinates)
                 {
@@ -90,7 +94,7 @@ namespace StatisticsAPI
 
             for (int i = 0; i < k; i++)
             {
-                Tuple<decimal, decimal>[] value = new Tuple<decimal, decimal>[clusters[m].Count];
+                Tuple<decimal, decimal>[] value = new Tuple<decimal, decimal>[clusters[i].Count];
                 clusters[i].CopyTo(value);
                 result[centroids_new[i]] = value;
             }
