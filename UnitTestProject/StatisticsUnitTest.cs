@@ -38,11 +38,15 @@ namespace UnitTestProject
         public void correlationTest()
         {
             decimal[] vector1 = { 1, 2, 3, 4, 5, 6 };
-            decimal[] vector2 = { 5, 1 / 3, 6, 7, 8, 9 };
-            var result1 = (double)Statistics.correlation(vector1, vector1);
-            var result2 = (double)Statistics.correlation(vector1, vector2);
-            Assert.AreEqual(result1, 1, 0.001, "correlation of array with itself should be 1");
+            decimal[] vector2 = { 5, Convert.ToDecimal(1) / Convert.ToDecimal(3), 6, 7, 8, 9 };
+            double result1 = (double)Statistics.correlation(vector1, vector1);
+            double result2 = (double)Statistics.correlation(vector1, vector2);
+            Assert.AreEqual(1, result1, .001, "correlation of array with itself should be 1");
+            Assert.AreEqual(.956, result2, 0.001, "Correlation is not accurate within tolerance of .01");
 
         }
+
+        //tested all the private methods on CoderPad
+
     }
 }

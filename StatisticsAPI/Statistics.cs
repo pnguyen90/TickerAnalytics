@@ -141,7 +141,7 @@ namespace StatisticsAPI
         private static decimal distance(Tuple<decimal,decimal> point1, Tuple<decimal,decimal> point2)
         {
             decimal x_diff = point2.Item1 - point1.Item1;
-            decimal y_diff = point2.Item2 - point1.Item1;
+            decimal y_diff = point2.Item2 - point1.Item2;
             decimal squared_distance = x_diff * x_diff + y_diff * y_diff;
             double squared_distance_d = (double)squared_distance;
             double distance_d = Math.Sqrt(squared_distance_d);
@@ -154,7 +154,7 @@ namespace StatisticsAPI
         {
             int count = 0;
             int index = 0;
-            decimal minv = 0;
+            decimal minv = numbers[0];
 
             foreach (decimal value in numbers)
             {
