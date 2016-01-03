@@ -75,12 +75,7 @@ namespace k_means_cluster
             decimal[] y_vector = DBobject.getPriceArray(y_ticker, d1,d2);
             int k = int.Parse(k_param.Text);
 
-            var data = new Object[tickers.Length];
-            for (int i = 0; i < tickers.Length; i++)
-            {
-                data[i] = tickers[i];
-            }
-            //create array of tuples and a dictionary encoding tickers to tuples
+            //generate numerical points from ticker symbols. Encode points to tickers so we can translate back.
             Dictionary<Tuple<decimal, decimal>, string> tuple_ticker = new Dictionary<Tuple<decimal, decimal>, string>(tickers.Length);
             Tuple<decimal,decimal>[] ticker_coords = new Tuple<decimal,decimal>[tickers.Length];
 
@@ -94,14 +89,37 @@ namespace k_means_cluster
                 ticker_coords[count] = point;
                 tuple_ticker[point] = symbol;
             }
-
+            // cluster the data
             Dictionary<Tuple<decimal, decimal>, Tuple<decimal, decimal>[]> result = Statistics.k_means(ticker_coords, k);
+
+            //re_translate the numerical data back to ticker symbols. 
+            //format our data object to be ready for excel
+            //each cluster will fill a column. first two rows of each 
+            // column will be x and y coordinate of cluster centroid
+            var data = new object[tickers.Length + 2, k];
+
+            int i = 2;
+            int j = 0;
+            foreach(KeyValuePair<Tuple<decimal,decimal>, Tuple<decimal,decimal>[]> entry in result)
+            {
+                data[0, j] = entry.Key.Item1;
+                data[1, j] = entry.Key.Item2;
+                
+                foreach (Tuple<decimal,decimal> p in entry.Value)
+                {
+                    data[i, j] = tuple_ticker[p];
+                    i += 1;
+                }
+                j += 1;
+                i = 2;
+            }
+
             // Handles creation of excel workbook and loads the data all at once
             Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
             Workbook wb = app.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
             Worksheet ws = wb.Worksheets[1];
             var startCell = ws.Cells[1, 1];
-            var endCell = ws.Cells[1, tickers.Length];
+            var endCell = ws.Cells[tickers.Length + 2, k];
             var writeRange = ws.Range[startCell, endCell];
 
             writeRange.Value2 = data;
