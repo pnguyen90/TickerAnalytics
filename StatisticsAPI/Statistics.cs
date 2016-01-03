@@ -32,11 +32,9 @@ namespace StatisticsAPI
             return adotb / denom;
         }
 
-        //first map array of tickers to an array of tuples.
-            //create dictionary { tuple:TICKER }
-            //create array of tuples
-        //apply standard k-means clustering algorithm to tuples.
-        //map the tuples back to tickers preserving clusters.
+        //k_means clusters an array of (x,y) tuples, minimizing cluster variance.
+        //each cluster is an value in the dictionary, with the key given by
+        // the cluster's centroid 
         public static Dictionary<Tuple<decimal,decimal>, Tuple<decimal,decimal>[]> k_means(Tuple<decimal,decimal>[] coordinates, int k)
         {
             Tuple<decimal, decimal>[] centroids_new = new Tuple<decimal, decimal>[k];
@@ -87,7 +85,7 @@ namespace StatisticsAPI
                 
             }
 
-            //when we are done clustering, convert everything to a dictionary
+            //when we are done clustering, convert everything to a dictionary and return it
             
 
             Dictionary<Tuple<decimal,decimal>, Tuple<decimal,decimal>[]> result = new Dictionary<Tuple<decimal,decimal>, Tuple<decimal,decimal>[]>(k);

@@ -16,6 +16,9 @@ using System.Windows.Forms;
 using System.Collections;
 using System.IO;
 using Microsoft.Office.Interop.Excel;
+using DatabaseAPI;
+using StatisticsAPI;
+
 
 namespace k_means_cluster
 {
@@ -53,15 +56,46 @@ namespace k_means_cluster
 
         }
 
+
+        //first map array of tickers to an array of tuples.
+        //create dictionary { tuple:TICKER }
+        //create array of tuples
+        //apply standard k-means clustering algorithm to tuples.
+        //map the tuples back to tickers preserving clusters.
+
         //getClusters button will create clusters in excel 
         private void getClusters(object sender, RoutedEventArgs e)
         {
+
+            DateTime d1 = date1.DisplayDate;
+            DateTime d2 = date2.DisplayDate;
+            string x_ticker = xcoor.Text;
+            string y_ticker = ycoor.Text;
+            decimal[] x_vector = DBobject.getPriceArray(x_ticker, d1,d2);
+            decimal[] y_vector = DBobject.getPriceArray(y_ticker, d1,d2);
+            int k = int.Parse(k_param.Text);
 
             var data = new Object[tickers.Length];
             for (int i = 0; i < tickers.Length; i++)
             {
                 data[i] = tickers[i];
             }
+            //create array of tuples and a dictionary encoding tickers to tuples
+            Dictionary<Tuple<decimal, decimal>, string> tuple_ticker = new Dictionary<Tuple<decimal, decimal>, string>(tickers.Length);
+            Tuple<decimal,decimal>[] ticker_coords = new Tuple<decimal,decimal>[tickers.Length];
+
+            int count = 0;
+            foreach (string symbol in tickers)
+            {
+                decimal[] price_vector = DBobject.getPriceArray(symbol, d1, d2);
+                decimal x = Statistics.correlation(x_vector, price_vector);
+                decimal y = Statistics.correlation(y_vector, price_vector);
+                Tuple<decimal,decimal> point = new Tuple<decimal, decimal>(x,y);
+                ticker_coords[count] = point;
+                tuple_ticker[point] = symbol;
+            }
+
+            Dictionary<Tuple<decimal, decimal>, Tuple<decimal, decimal>[]> result = Statistics.k_means(ticker_coords, k);
             // Handles creation of excel workbook and loads the data all at once
             Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
             Workbook wb = app.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);

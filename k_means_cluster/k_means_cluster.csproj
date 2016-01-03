@@ -101,6 +101,10 @@
     <Resource Include="Properties\k-means.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DatabaseAPI\DatabaseAPI.csproj">
+      <Project>{4caebd55-d161-4c35-8d04-14e0fce9c2eb}</Project>
+      <Name>DatabaseAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StatisticsAPI\StatisticsAPI.csproj">
       <Project>{080a5f51-16b9-4fed-88ef-11f1ea0923b2}</Project>
       <Name>StatisticsAPI</Name>

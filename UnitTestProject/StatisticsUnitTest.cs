@@ -27,11 +27,12 @@ namespace UnitTestProject
             Tuple<decimal, decimal> point12 = new Tuple<decimal,decimal>(-8,-9);
             Tuple<decimal, decimal>[] coords = {point1, point2, point3, point12, point9, point6, point11, point8, point5, point4, point7,point10};
 
+            Tuple<decimal, decimal> centroid1 = new Tuple<decimal, decimal>(Convert.ToDecimal(9.25), Convert.ToDecimal(9.5));
             var results = Statistics.k_means(coords,3);
             int cluster_length = results.Count;
 
-
-            Assert.AreEqual(cluster_length, 3, 0.001, "cluster length incorrect");
+            Assert.AreEqual(cluster_length, 3, 0.001, "Dictionary length incorrect.");
+            Assert.AreEqual(results[centroid1].Length, 4, "Cluster length incorrect.");
         }
 
         [TestMethod]

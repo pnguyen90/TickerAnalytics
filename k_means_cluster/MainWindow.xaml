@@ -16,5 +16,7 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="351,111,0,0" TextWrapping="Wrap" Text="TICKER1" VerticalAlignment="Top" Width="120" Name="xcoor"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="351,163,0,0" TextWrapping="Wrap" Text="TICKER2" VerticalAlignment="Top" Width="120" Name="ycoor"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="63,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="filepath"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="351,211,0,0" TextWrapping="Wrap" Text="Enter integer" VerticalAlignment="Top" Width="120" Name="k_param"/>
+        <Label Content="How many clusters?" HorizontalAlignment="Left" Margin="351,185,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
