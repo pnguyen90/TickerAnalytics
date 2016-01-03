@@ -17,3 +17,5 @@ C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\DatabaseAPI.dll
 C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\EntityFramework.dll
 C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\DatabaseAPI.pdb
 C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\EntityFramework.xml
+C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\EntityFramework.SqlServer.xml

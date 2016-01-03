@@ -83,6 +83,7 @@ namespace k_means_cluster
                 Tuple<decimal,decimal> point = new Tuple<decimal, decimal>(x,y);
                 ticker_coords[count] = point;
                 tuple_ticker[point] = symbol;
+                count += 1;
             }
             // cluster the data
             Dictionary<Tuple<decimal, decimal>, Tuple<decimal, decimal>[]> result = Statistics.k_means(ticker_coords, k);
