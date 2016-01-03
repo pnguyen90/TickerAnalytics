@@ -13,3 +13,7 @@ C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\k_means_cluster.pdb
 C:\Users\T-420\TickerAnalytics\k_means_cluster\obj\Debug\k_means_cluster.csprojResolveAssemblyReference.cache
 C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\StatisticsAPI.dll
 C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\StatisticsAPI.pdb
+C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\DatabaseAPI.dll
+C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\EntityFramework.dll
+C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\DatabaseAPI.pdb
+C:\Users\T-420\TickerAnalytics\k_means_cluster\bin\Debug\EntityFramework.xml

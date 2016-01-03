@@ -57,12 +57,7 @@ namespace k_means_cluster
         }
 
 
-        //first map array of tickers to an array of tuples.
-        //create dictionary { tuple:TICKER }
-        //create array of tuples
-        //apply standard k-means clustering algorithm to tuples.
-        //map the tuples back to tickers preserving clusters.
-
+       
         //getClusters button will create clusters in excel 
         private void getClusters(object sender, RoutedEventArgs e)
         {
