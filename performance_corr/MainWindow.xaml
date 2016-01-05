@@ -9,7 +9,7 @@
             </ImageBrush>
         </Grid.Background>
         
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="51,70,0,0" TextWrapping="Wrap" Text="AMRN,MCSF,IRF" VerticalAlignment="Top" Width="141" Name="Tickers"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="51,70,0,0" TextWrapping="Wrap" Text="AMRN,MCSF,IRF" VerticalAlignment="Top" Width="141" Name="Tickers" HorizontalScrollBarVisibility="Auto"/>
         <TextBlock HorizontalAlignment="Left" Margin="51,49,0,0" TextWrapping="Wrap" Text="List tickers. Seperate by comma" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold" FontStyle="Italic" />
         <TextBlock HorizontalAlignment="Left" Margin="51,120,0,0" TextWrapping="Wrap" Text="From " VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
         <Button Content="Create Matrix" HorizontalAlignment="Left" Margin="51,201,0,0" VerticalAlignment="Top" Width="104" Click="GenerateExcelFile"/>
