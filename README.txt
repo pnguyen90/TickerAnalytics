@@ -1,7 +1,7 @@
 Author: Phong Khoi Nguyen
 Pupose: Hobby/Demo App
 Date of conception: 12/26/2015
-First working version: 1/3/2015
+First working version: 1/3/2016
 Application type: Stock Analytics Tool
 
 
