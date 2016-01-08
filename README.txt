@@ -3,6 +3,9 @@ Pupose: Hobby/Demo App
 Date of conception: 12/26/2015
 First working version: 1/3/2016
 Application type: Stock Analytics Tool
+LIVE APP DEMO AVAILABLE UPON REQUEST! I can send a web URL and temporary credentials to remote
+login to my computer and run the apps on my laptop (configured to work with 
+SQL Server 2014 Express, also on my laptop).
 
 
 This C# suite consists of two desktop applications:
