@@ -9,9 +9,12 @@ namespace StatisticsAPI
 {
     public class Statistics
     {
-        //returns the normalized correlation of two arrays of decimals.
+        //returns the Pearson correlation coefficient of two arrays of decimals.
         public static decimal correlation(decimal[] a, decimal[] b)
         {
+            decimal n = a.Length;
+            decimal a_sum = a.Aggregate<decimal>((x,y) => x + y);
+            decimal b_sum = b.Aggregate<decimal>((x,y) => x + y);
             //compute dot product of a and b  ----> a.b
             decimal adotb = dotProduct(a, b);
             
@@ -22,14 +25,13 @@ namespace StatisticsAPI
             //compute the dot produc of b with itself ----> b.b
             decimal bdotb = dotProduct(b, b);
 
-            // compute the squareroot of (a.a)*(b.b) ----> denom
-            decimal denom = adota * bdotb;
-            double denomd = (double)denom;
-            double c = Math.Sqrt(denomd);
+            decimal denom = (n * adota - a_sum * a_sum)*(n * bdotb - b_sum * b_sum);
+            double c = Math.Sqrt((double)denom);
             denom = Convert.ToDecimal(c);
 
-            // return (a.b)/denom
-            return adotb / denom;
+
+            // return pearson coefficent
+            return (n*adotb - a_sum*b_sum)/ denom;
         }
 
         //k_means clusters an array of (x,y) tuples, minimizing cluster variance.

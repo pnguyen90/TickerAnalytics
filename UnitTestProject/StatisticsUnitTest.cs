@@ -46,7 +46,7 @@ namespace UnitTestProject
             double result2 = (double)Statistics.correlation(vector1, vector2);
             double negative = (double)Statistics.correlation(vector_inverse1, vector_inverse2);
             Assert.AreEqual(1, result1, .001, "correlation of array with itself should be 1");
-            Assert.AreEqual(.956, result2, 0.001, "Correlation is not accurate within tolerance of .01");
+            Assert.AreEqual(.7668027788, result2, 0.001, "Correlation is not accurate within tolerance of .01");
             Assert.AreEqual(-1, negative, .001, "Correlation should be -1");
 
         }
